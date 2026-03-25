@@ -1,6 +1,7 @@
 export * from "./Accordion/Accordion";
 export * from "./Avatar/Avatar";
 export * from "./Button/Button";
+export * from "./ChartBar/ChartBar";
 export * from "./Checkbox/Checkbox";
 export * from "./Dialog/Dialog";
 export * from "./Fieldset/Fieldset";
@@ -19,6 +20,7 @@ export * from "./Radio/Radio";
 export * from "./Search/Search";
 export * from "./Select/Select";
 export * from "./Slider/Slider";
+export * from "./StatusBadge/StatusBadge";
 export * from "./Switch/Switch";
 export * from "./Tab/Tab";
 export * from "./Table/Table";

@@ -6,9 +6,20 @@ import { PanelSections } from "./examples/PanelSections";
 import { PricingGrid } from "./examples/PricingGrid";
 import { ProductDetails } from "./examples/ProductDetails";
 import { ProductGrid } from "./examples/ProductGrid";
+import { SignIn } from "./examples/SignIn";
 import { WelcomeHero } from "./examples/WelcomeHero";
 
 function App() {
+  const isSignInPage = typeof window !== "undefined" && window.location.hash.startsWith("#signin");
+
+  if (isSignInPage) {
+    return (
+      <AllProviders>
+        <SignIn />
+      </AllProviders>
+    );
+  }
+
   return (
     <AllProviders>
       <Header />

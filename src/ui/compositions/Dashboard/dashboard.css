@@ -1,0 +1,53 @@
+.chart-card {
+  background-color: var(--sds-color-background-default-default);
+  border: 1px solid var(--sds-color-border-default-default);
+  border-radius: var(--sds-size-radius-200);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-400);
+  padding: var(--sds-size-space-600);
+}
+
+.chart-card-content {
+  background-color: var(--sds-color-background-default-secondary);
+  border-radius: var(--sds-size-radius-200);
+  min-height: 240px;
+}
+
+.data-table {
+  background-color: var(--sds-color-background-default-default);
+  border: 1px solid var(--sds-color-border-default-default);
+  border-radius: var(--sds-size-radius-200);
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--sds-size-space-600);
+}
+
+.data-table-title {
+  padding-inline: var(--sds-size-space-600);
+  padding-block-end: var(--sds-size-space-400);
+}
+
+.data-table-row {
+  display: flex;
+  align-items: center;
+  padding-inline: var(--sds-size-space-600);
+  padding-block: var(--sds-size-space-300);
+}
+
+.data-table-row-header {
+  background-color: var(--sds-color-background-neutral-secondary);
+  font: var(--sds-font-body-strong);
+  color: var(--sds-color-text-default-default);
+}
+
+.data-table-row-data {
+  border-bottom: 1px solid var(--sds-color-border-default-secondary);
+  font: var(--sds-font-body-base);
+  color: var(--sds-color-text-default-secondary);
+}
+
+.data-table-cell {
+  flex: 1;
+  min-width: 0;
+}

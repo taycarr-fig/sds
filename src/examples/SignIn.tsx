@@ -1,26 +1,24 @@
 import { useState } from "react";
-import { useAuth } from "data";
 import { useMediaQuery } from "hooks";
 import {
   Button,
   InputField,
   CheckboxField,
   Link,
-  Logo,
-  Notification,
   Text,
   TextContentHeading,
 } from "primitives";
 import { Flex, FlexItem, Section } from "layout";
 
-// asset urls taken from Figma export for prototype purposes
+// these URLs are taken directly from the Figma export and are only meant
+// for use while the MCP server is running.  They give you a quick way to
+// prototype with the same image assets you see in the design tool.
 const googleLogo =
   "http://localhost:3845/assets/6a132dfcece7b7c6af5cf896571c678e44017604.svg";
 const passkeyLogo =
   "http://localhost:3845/assets/8127dc1fb1bb8c57160996cc023eed474c42b9f2.svg";
 
-export function Demo() {
-  const { user, login, logout, error, clearError, isLoading } = useAuth();
+export function SignIn() {
   const { isMobile } = useMediaQuery();
   const sectionPadding = isMobile ? "600" : "1600";
   const flexGap = isMobile ? "600" : "800";
@@ -31,35 +29,8 @@ export function Demo() {
 
   const isFormValid = email.trim().length > 0 && password.trim().length > 0;
 
-  const handleSignIn = async () => {
-    try {
-      await login({ email, password });
-    } catch (_err) {
-      // error state is handled by context; notification will show
-    }
-  };
-
-  if (user) {
-    return (
-      <Section padding={sectionPadding} variant="neutral">
-        <Flex container direction="column" alignPrimary="center" gap={flexGap}>
-          <TextContentHeading
-            heading={`Welcome, ${user.name}!`}
-            subheading="You are now signed in."
-          />
-          <Button variant="primary" onPress={logout} isDisabled={isLoading}>
-            Log out
-          </Button>
-        </Flex>
-      </Section>
-    );
-  }
-
   return (
-    <Section padding={sectionPadding} variant="neutral" className="relative">
-      {/* logo in top‑left corner */}
-      <Logo className="absolute top-[32px] left-[32px]" />
-
+    <Section padding={sectionPadding} variant="neutral">
       <Flex
         container
         direction="column"
@@ -69,18 +40,10 @@ export function Demo() {
       >
         <FlexItem size="major">
           <Flex direction="column" gap={flexGap} alignSecondary="stretch">
-            {error && (
-              <Notification
-                variant="alert"
-                isDismissible
-                onDismiss={clearError}
-              >
-                <Text>{error.message}</Text>
-              </Notification>
-            )}
-
+            {/* header text */}
             <TextContentHeading heading="Sign in to your account" />
 
+            {/* form itself */}
             <Flex direction="column" gap="600" alignSecondary="stretch">
               <InputField
                 label="Email"
@@ -92,6 +55,9 @@ export function Demo() {
 
               <Flex direction="column" gap="400">
                 <Flex justifyContent="space-between" alignItems="center">
+                  {/* visually hidden label for accessibility; InputField already
+                      renders a label, but we want the "forgot password" link on
+                      the same row so we keep the input label off-screen. */}
                   <span className="sr-only">Password</span>
                   <Link href="#">Forgot your password?</Link>
                 </Flex>
@@ -112,14 +78,16 @@ export function Demo() {
 
               <Button
                 variant="primary"
-                isDisabled={!isFormValid || isLoading}
-                onPress={handleSignIn}
-                isLoading={isLoading}
+                isDisabled={!isFormValid}
+                onPress={() => {
+                  /* handle login */
+                }}
               >
                 Login
               </Button>
             </Flex>
 
+            {/* divider */}
             <Flex align="center" gap="400">
               <div
                 style={{
@@ -140,6 +108,7 @@ export function Demo() {
               />
             </Flex>
 
+            {/* social / alternative sign‑in options */}
             <Flex direction="column" gap="400" alignSecondary="stretch">
               <Button variant="neutral">
                 <Flex align="center" gap="200">
@@ -161,14 +130,6 @@ export function Demo() {
             </Text>
           </Flex>
         </FlexItem>
-
-        {/* footer links mimicking Figma design */}
-        <Flex gap="200" align="center" className="mt-[800]">
-          <Text color="subtle">© Stripe</Text>
-          <Link href="#" color="subtle">
-            Privacy & terms
-          </Link>
-        </Flex>
       </Flex>
     </Section>
   );

@@ -7,3 +7,5 @@ export function FormBox({ className, ...props }: FormBoxProps) {
   const classNames = clsx(className, "form-box");
   return <Form className={classNames} {...props} />;
 }
+
+export * from "./ReferralForm";

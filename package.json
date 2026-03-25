@@ -8,14 +8,15 @@
     "app:build": "tsc && vite build",
     "app:lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "app:preview": "vite preview",
-    "storybook": "storybook dev -p 6006 --no-open",
+    "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build --output-dir dist/storybook",
     "build": "npm run app:build; npm run storybook:build",
     "script:dev-resources": "cd scripts/dev-resources; node --env-file=../../.env app.mjs; cd -;",
     "script:icons": "cd scripts/icons; node --env-file=../../.env app.mjs --skip-rest-api; cd -;",
     "script:icons:rest": "cd scripts/icons; node --env-file=../../.env app.mjs; cd -;",
     "script:tokens": "cd scripts/tokens; node --env-file=../../.env app.mjs --skip-rest-api; cd -;",
-    "script:tokens:rest": "cd scripts/tokens; node --env-file=../../.env app.mjs; cd -;"
+    "script:tokens:rest": "cd scripts/tokens; node --env-file=../../.env app.mjs; cd -;",
+    "build-storybook": "storybook build"
   },
   "prettier": {
     "plugins": [
@@ -50,6 +51,16 @@
     "react-dom": "^18.2.0",
     "storybook": "^8.6.12",
     "typescript": "^5.0.2",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "@chromatic-com/storybook": "^5.0.1",
+    "@storybook/addon-vitest": "^10.2.9",
+    "@storybook/addon-a11y": "^10.2.9",
+    "@storybook/addon-designs": "^8.0.0",
+    "@storybook/addon-docs": "^10.2.9",
+    "@storybook/addon-onboarding": "^10.2.9",
+    "vitest": "^4.0.18",
+    "playwright": "^1.58.2",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18"
   }
 }

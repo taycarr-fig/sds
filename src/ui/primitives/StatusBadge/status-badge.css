@@ -1,0 +1,25 @@
+.status-badge {
+  align-items: center;
+  border-radius: var(--sds-size-radius-full);
+  display: inline-flex;
+  font: var(--sds-font-body-small);
+  justify-content: center;
+  line-height: 1;
+  padding: var(--sds-size-space-050) var(--sds-size-space-200);
+  white-space: nowrap;
+}
+
+.status-badge-scheme-positive {
+  background-color: var(--sds-color-background-positive-secondary);
+  color: var(--sds-color-text-positive-default);
+}
+
+.status-badge-scheme-brand {
+  background-color: var(--sds-color-background-brand-secondary);
+  color: var(--sds-color-text-brand-default);
+}
+
+.status-badge-scheme-warning {
+  background-color: var(--sds-color-background-warning-secondary);
+  color: var(--sds-color-text-warning-default);
+}

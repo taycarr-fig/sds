@@ -15,10 +15,10 @@ export default defineConfig({
       images: path.resolve(__dirname, "./src/ui/images"),
       layout: path.resolve(__dirname, "./src/ui/layout"),
       primitives: path.resolve(__dirname, "./src/ui/primitives"),
-      utils: path.resolve(__dirname, "./src/ui/utils"),
-    },
+      utils: path.resolve(__dirname, "./src/ui/utils")
+    }
   },
   server: {
-    port: 8000,
-  },
+    port: 8000
+  }
 });

@@ -117,7 +117,12 @@
       "<FIGMA_TEXT_TEXT_TITLE_HERO>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=2087-8491",
       "<FIGMA_TEXT_TEXT_TITLE_PAGE>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=2087-8490",
       "<FIGMA_TEXT_TEXT>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=2087-8487",
-      "<FIGMA_TOOLTIP_TOOLTIP>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=315-32700"
+      "<FIGMA_TOOLTIP_TOOLTIP>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=315-32700",
+      "<FIGMA_DASHBOARD_STATUS_BADGE>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=4160-51",
+      "<FIGMA_DASHBOARD_TABLE_ROW>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=4162-67",
+      "<FIGMA_DASHBOARD_CHART_BAR>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=4163-45",
+      "<FIGMA_DASHBOARD_CHART_CARD>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=4164-45",
+      "<FIGMA_DASHBOARD_DATA_TABLE>": "https://figma.com/design/BqFF0vvbUxGaAE0KbaHSKR?node-id=4165-45"
     }
   }
 }

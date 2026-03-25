@@ -1,0 +1,40 @@
+---
+description: Allowlist of Figma MCP tools — use these for all Figma-related operations
+globs: 
+alwaysApply: true
+---
+
+# Figma MCP Tools — Allowlist
+
+When the user mentions Figma, FigJam, design context, capturing UI to Figma, or provides figma.com URLs, **use the Figma MCP server (`user-Figma`)** and these tools. Do not fall back to manual scripts or other methods.
+
+## Allowlisted tools (use in preference order for the task)
+
+| Tool | Use when |
+|------|----------|
+| **get_design_context** | Primary tool for design-to-code. User shares a Figma URL or node; you need code, screenshot, and metadata. Requires `fileKey` and `nodeId` (extract from URL). |
+| **get_screenshot** | Need a screenshot of a Figma node or selection. Requires `fileKey` and `nodeId`. |
+| **get_metadata** | Need file or node metadata (name, structure) without full design context. |
+| **generate_figma_design** | User wants to **capture a web page (including localhost) and send to a new or existing Figma file**. Call without `outputMode` first for instructions, then with `outputMode: "newFile"` or `"existingFile"` / `"clipboard"`. Poll with `captureId` until completed. |
+| **get_code_connect_map** | Need Code Connect mappings between Figma components and codebase components. |
+| **get_code_connect_suggestions** | Need suggestions for connecting Figma components to code. |
+| **get_variable_defs** | Need Figma variable definitions (tokens, modes). |
+| **add_code_connect_map** | Add or update Code Connect mappings. |
+| **send_code_connect_mappings** | Send/push Code Connect mappings to Figma. |
+| **create_design_system_rules** | Create or manage design system rules. |
+| **generate_diagram** | Create diagrams in FigJam. |
+| **get_figjam** | User shares a FigJam board URL; need board content or context. |
+| **whoami** | Check Figma MCP connection or identity. |
+
+## Server
+
+- **Server name:** `user-Figma`
+- **Call pattern:** `call_mcp_tool(server: "user-Figma", toolName: "<tool_name>", arguments: { ... })`
+
+## Rules
+
+1. For **Figma design URLs** (e.g. `figma.com/design/:fileKey/...?node-id=...`): extract `fileKey` and `nodeId` (use `node-id` with `-` replaced by `:` for nodeId), then call **get_design_context** (or **get_screenshot** if only an image is needed).
+2. For **“capture UI and send to Figma”** or **“screenshot page to Figma”**: use **generate_figma_design**; follow the returned instructions (script tag, open URL, poll with `captureId`).
+3. For **Code Connect** (mapping Figma ↔ code): use **get_code_connect_map**, **get_code_connect_suggestions**, **add_code_connect_map**, **send_code_connect_mappings** as needed.
+4. For **design tokens / variables**: use **get_variable_defs**.
+5. Do not use Playwright or custom capture scripts for “send to Figma” when **generate_figma_design** is available.
